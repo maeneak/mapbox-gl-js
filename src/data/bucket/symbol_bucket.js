@@ -360,6 +360,7 @@ class SymbolBucket implements Bucket {
             (textFont.value.kind !== 'constant' || textFont.value.value.length > 0);
         const hasIcon = iconImage.value.kind !== 'constant' || iconImage.value.value && iconImage.value.value.length > 0;
         const symbolSortKey = layout.get('symbol-sort-key');
+        const symbolZOffset = layout.get('symbol-z-offset');
 
         this.features = [];
 
@@ -397,6 +398,8 @@ class SymbolBucket implements Bucket {
                 continue;
             }
 
+            const zOffset = symbolZOffset.evaluate(feature, {});
+
             const sortKey = this.sortFeaturesByKey ?
                 symbolSortKey.evaluate(feature, {}) :
                 undefined;
@@ -409,7 +412,8 @@ class SymbolBucket implements Bucket {
                 geometry: loadGeometry(feature),
                 properties: feature.properties,
                 type: vectorTileFeatureTypes[feature.type],
-                sortKey
+                sortKey,
+                zOffset
             };
             if (typeof feature.id !== 'undefined') {
                 symbolFeature.id = feature.id;

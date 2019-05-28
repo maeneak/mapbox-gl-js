@@ -214,6 +214,7 @@ export type SymbolLayerSpecification = {|
         "symbol-spacing"?: PropertyValueSpecification<number>,
         "symbol-avoid-edges"?: PropertyValueSpecification<boolean>,
         "symbol-sort-key"?: DataDrivenPropertyValueSpecification<number>,
+        "symbol-z-offset"?: DataDrivenPropertyValueSpecification<number>,
         "symbol-z-order"?: PropertyValueSpecification<"auto" | "viewport-y" | "source">,
         "icon-allow-overlap"?: PropertyValueSpecification<boolean>,
         "icon-ignore-placement"?: PropertyValueSpecification<boolean>,
@@ -414,4 +415,3 @@ export type LayerSpecification =
     | RasterLayerSpecification
     | HillshadeLayerSpecification
     | BackgroundLayerSpecification;
-
