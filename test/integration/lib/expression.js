@@ -1,5 +1,5 @@
 import path from 'path';
-import diff from 'diff';
+import {diffJson} from 'diff';
 import fs from 'fs';
 import harness from './harness';
 import compactStringify from 'json-stringify-pretty-compact';
@@ -126,10 +126,10 @@ export function run(implementation, options, runExpressionTest) {
                 html: ''
             };
 
-            const diffJson = (label, expectedJson, actualJson) => {
+            const diffResult = (label, expectedJson, actualJson) => {
                 let text = '';
                 let html = '';
-                diff.diffJson(expectedJson, actualJson)
+                diffJson(expectedJson, actualJson)
                     .forEach((hunk) => {
                         if (hunk.added) {
                             text += `+ ${hunk.value}`;
@@ -149,13 +149,13 @@ export function run(implementation, options, runExpressionTest) {
             };
 
             if (!compileOk) {
-                diffJson('Compiled', expected.compiled, result.compiled);
+                diffResult('Compiled', expected.compiled, result.compiled);
             }
             if (compileOk && !serializationOk) {
-                diffJson('Serialized', expected.serialized, result.serialized);
+                diffResult('Serialized', expected.serialized, result.serialized);
             }
             if (compileOk && !recompileOk) {
-                diffJson('Serialized and re-compiled', expected.compiled, result.recompiled);
+                diffResult('Serialized and re-compiled', expected.compiled, result.recompiled);
             }
 
             const diffOutputs = (testOutputs) => {
