@@ -1980,13 +1980,13 @@
       "value": "enum",
       "values": {
         "horizontal": {
-          "doc": "TODO: add documentation. Point labels would be laid out horizontally."
+          "doc": "If a text's language supports horizontal writing mode, symbols with point placement would be laid out horizontally."
         },
         "vertical": {
-          "doc": "TODO: add documentation. Point labels would be laid out vertically."
+          "doc": "If a text's language supports vertical writing mode, symbols with point placement would be laid out vertically."
         }
       },
-      "doc": "TODO: add documentation.",
+      "doc": "Hint for an orientation of a symbol with point placement. Symbols whose language does not support provided hint, will be laid out in their natural orientation. The order of elements in an array define priority order for the placement.",
       "requires": [
         "text-field",
         {
@@ -2003,10 +2003,10 @@
           "macos": "next"
         },
         "data-driven styling": {
-          "js": "next",
-          "android": "next",
-          "ios": "next",
-          "macos": "next"
+          "js": "Not yet supported",
+          "android": "Not yet supported",
+          "ios": "Not yet supported",
+          "macos": "Not yet supported"
         }
       },
       "expression": {
