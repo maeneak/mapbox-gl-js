@@ -1975,7 +1975,7 @@
       },
       "property-type": "data-constant"
     },
-    "text-placement-mode": {
+    "text-writing-mode": {
       "type": "array",
       "value": "enum",
       "values": {
@@ -1986,7 +1986,7 @@
           "doc": "If a text's language supports vertical writing mode, symbols with point placement would be laid out vertically."
         }
       },
-      "doc": "Hint for an orientation of a symbol with point placement. Symbols whose language does not support provided hint, will be laid out in their natural orientation. The order of elements in an array define priority order for the placement.",
+      "doc": "The property allows to control an orientation of a symbol. Note, that the property values act as a hint, so that Symbols whose language doesn't support provided orientation, will be laid out in their natural orientation. Example: English point symbol will be rendered horizontally even if `\"text-writing-mode\": [\"vertical\"]` is set. The order of elements in an array define priority order for the placement of an orientation variant.",
       "requires": [
         "text-field",
         {
